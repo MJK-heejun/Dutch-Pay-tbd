@@ -4,22 +4,10 @@
  * @flow
  */
 
-//import React, { Component } from 'react';
 import * as React from 'react';
-import {
-  Platform,
-  StyleSheet,
-  View
-} from 'react-native';
-import { Button, Text  } from 'native-base';
-import HeaderSection from './components/HeaderSection';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menus?',
-});
+import { Scene, Router, Stack, Actions } from 'react-native-router-flux';
+import MainPage from './components/page/MainPage';
+import SettingPage from './components/page/SettingPage';
 
 type Props = {};
 export default class App extends React.Component<Props> {
@@ -31,12 +19,13 @@ export default class App extends React.Component<Props> {
 
   render() {
     return (      
-      <View>
-        <HeaderSection headerText={'aaa'} />
-        <Button>
-            <Text>test button </Text>
-        </Button>        
-      </View>
+      <Router>
+        <Stack key="main-stack">
+          <Scene key="main-page" component={MainPage} hideNavBar/>
+          <Scene key="setting-page" component={SettingPage} hideNavBar/>
+        </Stack>        
+      </Router>
+
     );
   }
 }
