@@ -1,14 +1,10 @@
 const Realm = require('realm');
-//import React, { Component } from 'react';
-import { IHistoryDto } from 'dto/IHistoryDto'
-import { HistoryEnum } from 'enum/HistoryEnum'
-import { PersonEnum } from 'enum/PersonEnum'
+import { IDateDto, IHistoryDto } from 'dto/IDutchPayDto'
+import { HistoryEnum, PersonEnum } from 'enum/DutchPayEnum'
 
-// export default class Storage extends React.Component{
 export default class Storage {    
     private static _instance:Storage = new Storage();
-
-    private realm = null;
+    private realm:any = null;
 
     constructor() { 
         if(Storage._instance)
@@ -20,21 +16,13 @@ export default class Storage {
         return Storage._instance;
     }
 
-    public GetDataByYearMonth(year: number, month: number):IHistoryDto { //date
-        return { 
-            id:1,
-            year:1,
-            month:1,
-            day:1,
-            amount:1,
-            history_type: HistoryEnum.deposit,
-            description: "",
-            person_type: PersonEnum.host
-        };
+    public GetHistoryByYearMonth(year: number, month: number):IHistoryDto[] { //date
+        let result:IHistoryDto[] = this.realm.objects('History').filtered(`year = ${year} AND month = ${month}`); 
+        return result;        
     }
 
-    public WriteDataByYearMonthDay(year: number, month: number, day: number, data:any) { //date
-        
+    public WriteHistory(history:IHistoryDto) {
+        this.realm.create('History', history);
     }    
 
     private instantiateRealm(callBack:Function) : void {
@@ -47,8 +35,8 @@ export default class Storage {
                     month: 'int',
                     day: 'int',
                     amount: 'float',
-                    history_type: 'int', //enum deposit, expense
-                    description: 'string',
+                    description: 'string',                    
+                    history_type: 'int', //enum deposit, expense                    
                     person_type: 'int' //enum host, partner
                 }
             }]
