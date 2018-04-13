@@ -1,4 +1,4 @@
-import { HistoryEnum, PersonEnum } from 'enum/DutchPayEnum'
+import { HistoryEnum, PersonEnum } from 'enum'
 
 export interface IHistoryDto{
     id:number,
