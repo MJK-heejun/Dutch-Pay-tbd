@@ -14,12 +14,18 @@ import reducers from './reducers';
 import MainPage from './components/page/MainPage';
 import SettingPage from './components/page/SettingPage';
 
+//import { Storage } from './service';
+
+
 type Props = {};
 export default class App extends React.Component<Props> {
 
   componentWillMount(){
-    console.log("test test test?");
-    console.log("tesx");  
+    console.log("test test tessts");
+    console.log("tesx2");  
+
+    console.log("hellow worlv??d")
+
   }
 
   render() {
@@ -28,7 +34,7 @@ export default class App extends React.Component<Props> {
         <Router>
           <Stack key="main-stack">
             <Scene key="main-page" component={MainPage} hideNavBar/>
-            <Scene key="setting-page" component={SettingPage} hideNavBar/>
+            {/* <Scene key="setting-page" component={SettingPage} hideNavBar/> */}
           </Stack>        
         </Router>      
       </Provider>      

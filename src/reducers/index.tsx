@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { IHistoryDto } from 'dto';
+import HistoryReducer from './HistoryReducer';
 
 export default combineReducers({
-  histories:  () => [],
+  histories:  HistoryReducer,
   currentDate: () => [],
   currentHistories: () => [],
   currentHistory: () => []  
