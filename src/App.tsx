@@ -14,17 +14,20 @@ import reducers from './reducers';
 import MainPage from './components/page/MainPage';
 import SettingPage from './components/page/SettingPage';
 
-//import { Storage } from './service';
+import { Storage } from './service';
 
 
 type Props = {};
 export default class App extends React.Component<Props> {
 
   componentWillMount(){
-    console.log("test test tessts");
-    console.log("tesx2");  
-
-    console.log("hellow worlv??d")
+      
+    // let a = Storage.GetInstance();
+    // a.test().then((res)=>{
+      
+    //   console.log(res);
+    // });
+    // console.log("tesx2");  
 
   }
 

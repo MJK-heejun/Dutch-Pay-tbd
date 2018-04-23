@@ -1,1 +1,1 @@
-// export { Storage } from './Storage';
+export { Storage } from './Storage';
