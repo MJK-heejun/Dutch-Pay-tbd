@@ -11,6 +11,19 @@ import { connect, DispatchProp } from 'react-redux';
 class MainPage extends React.Component<DispatchProp<any>> {
 
   //now this.props has { Histories: state.histories } object
+  constructor(props:any) {
+    super(props);
+    console.log("so what do you have");
+    console.log(props);
+    this.state = {
+      currentMonth: new Date().getMonth()
+    }
+  }
+
+  componentWillMount(){
+    
+  }
+
 
   render() {
     return (

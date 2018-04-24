@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux';
-import HistoryReducer from './HistoryReducer';
+import CalendarReducer from './CalendarReducer';
+import DateSelectionReducer from './DateSelectionReducer';
+import HistoryListReducer from './HistoryListReducer';
+import HistorySelectionReducer from './HistoryselectionReducer';
 
-export default combineReducers({
-  histories:  HistoryReducer,
-  currentDate: () => [],
-  currentHistories: () => [],
-  currentHistory: () => []  
+export default combineReducers({  
+  calendarSummary: CalendarReducer,
+  selectedDate: DateSelectionReducer,  
+  historyList: HistoryListReducer,
+  selectedHistoryId: HistorySelectionReducer
 });
