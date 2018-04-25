@@ -15,7 +15,7 @@ import MainPage from './components/page/MainPage';
 import SettingPage from './components/page/SettingPage';
 
 //will delete
-import { Storage } from './service';
+import { Storage } from './helper';
 import { IDateDto, IHistoryDto } from 'dto';
 //import { PersonEnum, HistoryEnum } from 'enum';
 import { AsyncStorage } from 'react-native'
