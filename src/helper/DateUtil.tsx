@@ -7,6 +7,6 @@ export class DateUtil {
     //moment("2018-05-01").format('d') => 0~6 where 0 is sunday, 6 is saturday
     //cheatsheet https://devhints.io/moment
     public static GetCurrentMonth(){
-
+        
     }
 };
