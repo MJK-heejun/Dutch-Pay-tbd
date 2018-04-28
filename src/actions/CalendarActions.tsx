@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux';
 import { IHistoryDto, IDateDto, ICalendarDto } from 'dto';
-import { Storage } from 'helper';
+import { Storage } from '../helper';
 
 
 export const getHistoriesByDate = (date:IDateDto) => {
@@ -11,5 +11,5 @@ export const getHistoriesByDate = (date:IDateDto) => {
                 payload: {date, historyList}
             });
         });
-    }    
+    }
 }

@@ -1,0 +1,1 @@
+export { FakeStorage } from './FakeStorage';

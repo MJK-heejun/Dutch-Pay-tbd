@@ -7,16 +7,14 @@ const HeaderSection = (props: any) => {
     <Header>
       <Left>
         <Button transparent>
-          <Icon name='arrow-back' />
+          <Icon name='menu' />
         </Button>
       </Left>
       <Body>
         <Title>{props.headerText}</Title>
       </Body>
       <Right>
-        <Button transparent>
-          <Icon name='menu' />
-        </Button>
+
       </Right>
     </Header>
   </Container>

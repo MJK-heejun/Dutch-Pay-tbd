@@ -14,45 +14,11 @@ import reducers from './reducers';
 import MainPage from './components/page/MainPage';
 import SettingPage from './components/page/SettingPage';
 
-//will delete
-import { Storage } from './helper';
-import { IDateDto, IHistoryDto } from 'dto';
-//import { PersonEnum, HistoryEnum } from 'enum';
-import { AsyncStorage } from 'react-native'
 
 type Props = {};
 export default class App extends React.Component<Props> {
 
-  componentWillMount(){
-
-    let dateDummy:IDateDto = {
-      year: 2018,
-      month: 3,
-      day: 10
-    };
-    let historyDummy:IHistoryDto = {
-      amount: 10,
-      history_type: 0,
-      description: "some desposit description",
-      person_type: 1
-    };
-
-    // Storage.AddHistory(dateDummy, historyDummy).then(()=>{
-    //   console.log("successfully added history");
-    // });
-
-    // AsyncStorage.clear().then(()=>{
-    //   console.log("successfully cleared");
-    // });
-
-    Storage.GetHistoriesByDate(dateDummy).then((response)=>{
-      console.log("here's response");
-      console.log(response);
-    }).catch(error=>{
-      console.log("FAAAAAAAAAAAAAAAILED");
-      console.log(error);
-    });
-  }
+  componentWillMount(){}
 
   render() {
     return (      
