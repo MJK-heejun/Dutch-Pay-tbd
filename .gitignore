@@ -1,3 +1,7 @@
+# lock files
+package-lock.json
+
+
 # OSX
 #
 .DS_Store
