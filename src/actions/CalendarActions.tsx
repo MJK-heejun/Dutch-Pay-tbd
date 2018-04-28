@@ -3,7 +3,7 @@ import { IHistoryDto, IDateDto, ICalendarDto } from 'dto';
 import { Storage } from '../helper';
 
 
-export const getHistoriesByDate = (date:IDateDto) => {
+export const getHistoriesByDate:any = (date:IDateDto) => {
     return (dispatch:any) => {
         Storage.GetHistories(date).then((historyList:IHistoryDto[])=>{            
             dispatch({ 

@@ -15,17 +15,36 @@ import { DayEnum } from '../../enum';
 
 class MainPage extends React.Component<DispatchProp<any>, any> {
 
-  constructor(props:any) {
+  constructor(props:DispatchProp<any>) {
     super(props);
-
+    
     //to be removed
     console.log("this props....");
     console.log(props);
 
+    let currentDate:IDateDto = {
+      year: new Date().getFullYear(),
+      month: new Date().getMonth(),
+      day: 1
+    };
+
+
     let tmpCalendar:ICalendarDto = this.getTmpData();
+    let aaa:any = this.props;
+    tmpCalendar = aaa.calendar;
     this.state = {
       tmpCalendar: tmpCalendar
     };
+    setTimeout(function(){
+      console.log("----------------------");
+      let historyDispatchFunc = getHistoriesByDate(currentDate);
+      historyDispatchFunc(props.dispatch);    
+    
+    }, 5000);
+
+
+    //this.writeStorageTest(currentDate);
+    this.readStorageTest(currentDate);
   }
 
   componentWillMount(){    
@@ -83,27 +102,36 @@ class MainPage extends React.Component<DispatchProp<any>, any> {
     console.log("successfully added!!!");
   }
   //to be removed
-  readStorageTest(){
-    let date:IDateDto = {
-      year: new Date().getFullYear(),
-      month: new Date().getMonth(),
-      day: 1
-    };    
+  readStorageTest(date:IDateDto){  
     console.log("will read storage");
     Storage.GetHistories(date).then((res)=>{
+      console.log("read success");
       console.log(res);
     }, (err)=>{
+      console.log("read fail");
       console.log(err);
     });
+  }
+  writeStorageTest(date:IDateDto){
+    console.log("start");
+    let histories:IHistoryDto[] = FakeStorage.GetHistoriesByDate(null);
+    Storage.SetHistories(date, histories).then((res)=>{
+      console.log("succcesss");
+      console.log(res);
+    }, (err)=>{
+      console.log("faaaailed");
+      console.log(err);
+    });       
+
   }
 
 };
 
 
 const mapStateToProps:any = (state:any) => {
-  //state = all the state objects returned from reducer index
   let calendar:ICalendarDto = state.calendarSummary;
-  return { calendar: calendar };  
+  return { calendar: calendar }; 
 };
 
-export default connect<any, any, void>(mapStateToProps, {getHistoriesByDate})(MainPage);
+export default connect<any, any, void>(mapStateToProps)(MainPage);
+
