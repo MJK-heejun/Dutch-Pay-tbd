@@ -21,16 +21,15 @@ export default class App extends React.Component<Props> {
   componentWillMount(){}
 
   render() {
-    return (      
+    return (
       <Provider store={createStore(reducers)}>
         <Router>
           <Stack key="main-stack">
             <Scene key="main-page" component={MainPage} hideNavBar/>
             {/* <Scene key="setting-page" component={SettingPage} hideNavBar/> */}
-          </Stack>        
-        </Router>      
-      </Provider>      
-
+          </Stack>
+        </Router>
+      </Provider>
 
     );
   }
