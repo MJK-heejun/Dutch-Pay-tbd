@@ -10,7 +10,6 @@ import { FakeStorage } from '../../fake';
 import { Storage } from '../../helper'
 import { IDateDto, IHistoryDto, ICalendarDto } from 'dto'
 
-import { getHistoriesByDate } from '../../actions';
 import { DayEnum } from '../../enum';
 
 
@@ -29,7 +28,7 @@ export default class MainPage extends React.Component {
     return (
       <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
         <HeaderSection headerText={'Dutch Pay'} />
-        <Calendar calendar={calendar} firstDay={tmpDay} />      
+        <Calendar calendar={calendar} firstDay={tmpDay} />
       </View>
     )
   }
