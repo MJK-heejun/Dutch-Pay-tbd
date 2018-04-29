@@ -14,13 +14,13 @@ type Props = {};
 export default class App extends React.Component<Props> {
 
   render() {
-    var bluzelleInstance = new BluzelleWrapper()
+
     return (
       <Provider store={createStore(reducers)}>
         <Router>
-          <Stack key="main-stack" bluzelleInstance={bluzelleInstance}>
-            <Scene key="account-page" component={AccountPage} />
-            <Scene key="main-page" component={MainPage} hideNavBar/>
+          <Stack key="main-stack">
+            <Scene key="account-page" component={AccountPage} initial={true} />
+            {/* <Scene key="main-page" component={MainPage} hideNavBar/> */}
             {/* <Scene key="setting-page" component={SettingPage} hideNavBar/> */}
           </Stack>
         </Router>

@@ -5,18 +5,14 @@ const uuidv1 = require('uuid/v1')
 export class Storage {
 
   public static async GenerateBluzelleUUID():Promise<string> {
-    const uuid = uuidv1()
-    try {
-      await AsyncStorage.setItem('bluzelle-uuid', uuid)
-      return Promise.resolve(uuid)
-    }
-    catch {
-      return Promise.reject()
-    }
+    const uuid = uuidv1();
+    await AsyncStorage.setItem('bluzelle-uuid', uuid);
+    return uuid;
   }
 
   public static async GetBluzelleUUID():Promise<string> {
-    await AsyncStorage.getItem('bluzelle-uuid')
+    let key = await AsyncStorage.getItem('bluzelle-uuid');
+    return key;
   }
 
   public static async GetHistories(date: IDateDto, bluzelle: any):Promise<IHistoryDto[]> {
