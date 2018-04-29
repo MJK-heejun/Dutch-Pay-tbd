@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "bluzelle": "^0.8.1",
+    "moment": "^2.22.1",
     "native-base": "^2.4.1",
     "react": "16.3.0-alpha.1",
     "react-native": "0.54.4",

@@ -1,6 +1,7 @@
 import { AsyncStorage } from 'react-native'
-import { IDateDto, IHistoryDto } from 'dto'
-import { HistoryEnum, PersonEnum } from 'enum'
+import { IDateDto, IHistoryDto } from '../dto'
+import { HistoryEnum, PersonEnum, DayEnum } from '../enum'
+import moment from 'moment';
 
 
 export class DateUtil {
@@ -9,4 +10,10 @@ export class DateUtil {
     public static GetCurrentMonth(){
         
     }
+
+    public static GetFirstDayOfMonth(date: IDateDto):DayEnum{
+        let dayValue = moment(`${date.year}-${date.month}-01`).format('d');
+        return parseInt(dayValue);
+    }
+
 };

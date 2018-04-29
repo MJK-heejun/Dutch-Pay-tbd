@@ -3,7 +3,6 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'nativ
 
 const HeaderSection = (props: any) => {
   return (
-    <Container>
     <Header>
       <Left>
         <Button transparent>
@@ -14,10 +13,8 @@ const HeaderSection = (props: any) => {
         <Title>{props.headerText}</Title>
       </Body>
       <Right>
-
       </Right>
     </Header>
-  </Container>
   )
 };
 

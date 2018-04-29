@@ -27,7 +27,7 @@ export default class MainPage extends React.Component {
     let calendar:ICalendarDto = null;
     let tmpDay:DayEnum = DayEnum.thursday;
     return (
-      <View>
+      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start'}}>
         <HeaderSection headerText={'Dutch Pay'} />
         <Calendar calendar={calendar} firstDay={tmpDay} />      
       </View>

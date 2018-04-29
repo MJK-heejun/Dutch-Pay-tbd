@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import { ICalendarProps } from 'dto/ICalendarProps';
-import { DayEnum } from 'enum'
+import { DayEnum } from '../../enum'
 import { ICalendarDto, IHistoryDto, IDateDto } from '../../dto';
 import { FakeStorage } from '../../fake';
+import { Container } from 'native-base';
+import { DateUtil } from '../../helper'
+import CalendarSquare from './CalendarSquare'
 
 export default class Calendar extends React.Component<ICalendarProps, any> {
 
@@ -12,7 +15,7 @@ export default class Calendar extends React.Component<ICalendarProps, any> {
   //task #2 - display total amount for each date based on its histories
 
   constructor(props:any){
-    super(props);
+    super(props); 
     console.log(this.props.calendar);
     console.log(this.props.firstDay); //indicates the first day of the month. (e.g. Tuesday is the first day of 2018 May)    
     
@@ -35,10 +38,25 @@ export default class Calendar extends React.Component<ICalendarProps, any> {
   }
 
   render() {
+    let firstDateKey = Object.keys(this.state.tmpCalendar)[0];
+    let dateKeyObj:IDateDto = JSON.parse(firstDateKey);
+    let firstDay = DateUtil.GetFirstDayOfMonth(dateKeyObj);
+    console.log(firstDay);
+
+    let dayArrays = Array.apply(null, {length: 31}).map(Number.call, Number);
+
     return (
-      <View>
-        <Text>calendar view </Text>
-      </View>
+      <Container>
+
+        <View style={{flex: 1, flexDirection: 'row',  backgroundColor: 'grey', flexWrap: 'wrap'}}>
+          {dayArrays.map((day:number) => {
+            return (
+            <CalendarSquare day={day} deposit={111} expense={333} />
+            );
+          })}
+        </View>          
+
+      </Container>
     );
   }
 }
