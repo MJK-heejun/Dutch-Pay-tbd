@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 import { ICalendarProps } from 'dto/ICalendarProps';
-import { DayEnum } from 'enum'
+import { DayEnum } from '../../enum'
 import { ICalendarDto, IHistoryDto, IDateDto } from '../../dto';
 import { FakeStorage } from '../../fake';
 
@@ -14,8 +14,8 @@ export default class Calendar extends React.Component<ICalendarProps, any> {
   constructor(props:any){
     super(props);
     console.log(this.props.calendar);
-    console.log(this.props.firstDay); //indicates the first day of the month. (e.g. Tuesday is the first day of 2018 May)    
-    
+    console.log(this.props.firstDay); //indicates the first day of the month. (e.g. Tuesday is the first day of 2018 May)
+
     this.state = {
       tmpCalendar: this.getTmpCalendarObj(),
       tmpFirstday: DayEnum.wednesday
@@ -29,9 +29,9 @@ export default class Calendar extends React.Component<ICalendarProps, any> {
       year: new Date().getFullYear(),
       month: new Date().getMonth(),
       day: 1
-    };     
-    tmpCalendar[JSON.stringify(currentDate)] = tmpHistories;   
-    return tmpCalendar; 
+    };
+    tmpCalendar[JSON.stringify(currentDate)] = tmpHistories;
+    return tmpCalendar;
   }
 
   render() {
